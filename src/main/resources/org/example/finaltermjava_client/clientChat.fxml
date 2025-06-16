@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.image.Image?>
+<AnchorPane prefHeight="807.0" prefWidth="865.0" styleClass="backgroundMain" stylesheets="@css/Client.css" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.finaltermjava_client.controller.ClientChatController">
+    <children>
+        <ScrollPane fx:id="sp_main" layoutX="12.0" layoutY="14.0" prefHeight="681.0" prefWidth="826.0" styleClass="chat" stylesheets="@css/Client.css">
+            <content>
+                <VBox fx:id="vbox_messages" prefHeight="663.0" prefWidth="811.0" />
+            </content>
+        </ScrollPane>
+        <Pane layoutX="13.0" layoutY="713.0" prefHeight="75.0" prefWidth="826.0" styleClass="footer" stylesheets="@css/Client.css">
+            <children>
+                <ImageView fx:id="choose_img" fitHeight="32.0" fitWidth="39.0" layoutX="31.0" layoutY="24.0" pickOnBounds="true" preserveRatio="true">
+                    <image>
+                        <Image url="@Images/image.png" />
+                    </image>
+                </ImageView>
+                <TextField fx:id="tf_message" layoutX="121.0" layoutY="21.0" prefHeight="39.0" prefWidth="599.0" />
+                <ImageView fx:id="btn_send" fitHeight="32.0" fitWidth="24.0" layoutX="765.0" layoutY="29.0" pickOnBounds="true" preserveRatio="true">
+                    <image>
+                        <Image url="@Images/send.png" />
+                    </image>
+                </ImageView>
+                <ImageView fx:id="audio_send" fitHeight="37.0" fitWidth="36.0" layoutX="77.0" layoutY="20.0" pickOnBounds="true" preserveRatio="true">
+                    <image>
+                        <Image url="@Images/mic.png" />
+                    </image>
+                </ImageView>
+            </children>
+        </Pane>
+    </children>
+</AnchorPane>
