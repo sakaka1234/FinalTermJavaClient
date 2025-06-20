@@ -3,6 +3,7 @@ package org.example.finaltermjava_client.controller;
 
 
 import at.favre.lib.crypto.bcrypt.BCrypt;
+import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -105,18 +106,38 @@ public class RegisterController implements Initializable {
                 showAlert(Alert.AlertType.ERROR,"Email Exists","Email has already existed, Please choose another one");
                 return;
             }
-
+            String checkNameSql = "SELECT COUNT(*) FROM user WHERE username = ?";
+            PreparedStatement checkName = conn.prepareStatement(checkNameSql);
+            checkName.setString(1,user);
+            ResultSet rsName = checkName.executeQuery();
+            if(rsName.next() && rs.getInt(1) > 0){
+                showAlert(Alert.AlertType.ERROR,"Username Exists","Username has already existed, Please choose another one");
+                return;
+            }
             String sql = "INSERT INTO user(username,email,password) VALUES (?,?,?)";
             PreparedStatement stmt = conn.prepareStatement(sql);
             stmt.setString(1,user);
             stmt.setString(2,mail);
             stmt.setString(3,hasedPassword);
             stmt.executeUpdate();
-            showAlert(Alert.AlertType.INFORMATION,"Success","User register successfully");
 
+            String role = "user";
+            String imgPath = "/org/example/finaltermjava_client/Images/avatar.png";
+
+            String fetchsql = "INSERT INTO fetchall(username,email,img,role) VALUES (?,?,?,?)";
+            PreparedStatement fetchstmt = conn.prepareStatement(fetchsql);
+            fetchstmt.setString(1,user);
+            fetchstmt.setString(2,mail);
+            fetchstmt.setString(3,imgPath);
+            fetchstmt.setString(4,role);
+            fetchstmt.executeUpdate();
             //chuyển sang admin form
+            Platform.runLater(() -> showAlert(Alert.AlertType.INFORMATION,"Success","User register successfully"));
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/org/example/finaltermjava_client/clientForm.fxml"));
             Scene scene = new Scene(loader.load());
+            ClientFormController controller = loader.getController();
+            controller.setInfoUser(user,imgPath);
+
             Stage stage = (Stage) btn_register.getScene().getWindow();
             stage.setScene(scene);
             clearForm();

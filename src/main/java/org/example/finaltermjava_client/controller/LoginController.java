@@ -79,9 +79,22 @@ public class LoginController implements Initializable {
             String hashedPassword = rs.getString("password");
             BCrypt.Result result = BCrypt.verifyer().verify(pass.toCharArray(),hashedPassword);
             if(result.verified){
+                String fetchsql = "SELECT username, img FROM fetchall WHERE email = ? AND role = 'user'";
+                PreparedStatement fetchstmt = conn.prepareStatement(fetchsql);
+                fetchstmt.setString(1,mail);
+                ResultSet fetchRs = fetchstmt.executeQuery();
+                String username = "";
+                String imgPath = "";
+                if(fetchRs.next()){
+                    username = fetchRs.getString("username");
+                    imgPath = fetchRs.getString("img");
+                }
                 Platform.runLater(() -> showAlert(Alert.AlertType.INFORMATION, "Success", "Validation success"));
                 FXMLLoader loader = new FXMLLoader(getClass().getResource("/org/example/finaltermjava_client/clientForm.fxml"));
+
                 Scene scene = new Scene(loader.load());
+                ClientFormController controller = loader.getController();
+                controller.setInfoUser(username,imgPath);
                 Stage stage = (Stage) btn_login.getScene().getWindow();
                 stage.setTitle("Client");
                 stage.setScene(scene);
