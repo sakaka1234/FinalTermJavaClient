@@ -1,33 +1,42 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.control.*?>
-<?import javafx.scene.image.*?>
-<?import javafx.scene.layout.*?>
-<?import javafx.scene.text.*?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="515.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.finaltermjava_client.controller.ClientFormController">
+<AnchorPane prefHeight="535.0" prefWidth="762.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.finaltermjava_client.controller.ClientFormController">
    <children>
-      <Button fx:id="open_chat" layoutX="94.0" layoutY="321.0" mnemonicParsing="false" text="Chat" />
-      <Label layoutX="266.0" layoutY="142.0" text="Date booking" />
-      <Label layoutX="271.0" layoutY="239.0" text="Origin" />
-      <Label layoutX="425.0" layoutY="239.0" text="Destination" />
-      <ComboBox fx:id="origin" layoutX="213.0" layoutY="296.0" prefWidth="150.0" />
-      <ComboBox fx:id="destination" layoutX="425.0" layoutY="296.0" prefWidth="150.0" />
-      <ImageView fx:id="client_img" fitHeight="66.0" fitWidth="69.0" layoutX="71.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true" />
-      <Label fx:id="client_name" layoutX="185.0" layoutY="47.0" text="Label">
-         <font>
-            <Font name="System Bold" size="18.0" />
-         </font>
-      </Label>
-      <ImageView fx:id="camera" fitHeight="39.0" fitWidth="41.0" layoutX="135.0" layoutY="104.0" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@Images/camera.png" />
-         </image>
-      </ImageView>
-      <Label layoutX="620.0" layoutY="239.0" text="Seat" />
-      <ComboBox fx:id="seat" layoutX="620.0" layoutY="296.0" prefWidth="150.0" />
-      <DatePicker fx:id="date_booking" layoutX="266.0" layoutY="172.0" />
-      <Button fx:id="booking_btn" layoutX="388.0" layoutY="414.0" mnemonicParsing="false" text="Book" />
-      <Button layoutX="89.0" layoutY="366.0" mnemonicParsing="false" text="Chat AI" fx:id="chatai_button"/>
+      <Pane layoutX="21.0" layoutY="26.0" prefHeight="483.0" prefWidth="721.0" styleClass="border" stylesheets="@css/MainForm.css">
+         <children>
+            <ComboBox fx:id="destination" layoutX="422.0" layoutY="282.0" prefWidth="211.0" stylesheets="@css/MainForm.css" />
+            <ComboBox fx:id="origin" layoutX="71.0" layoutY="282.0" prefHeight="33.0" prefWidth="211.0" stylesheets="@css/MainForm.css" />
+            <ComboBox fx:id="seat" layoutX="422.0" layoutY="198.0" prefWidth="211.0" stylesheets="@css/MainForm.css" />
+            <Label layoutX="78.0" layoutY="249.0" styleClass="label1" text="Origin" />
+            <Label layoutX="422.0" layoutY="249.0" styleClass="label1" text="Destination" />
+            <Label layoutX="434.0" layoutY="164.0" styleClass="label1" text="Seat" />
+            <DatePicker fx:id="date_booking" layoutX="70.0" layoutY="198.0" />
+            <Label layoutX="69.0" layoutY="151.0" styleClass="label1" text="Date booking" />
+            <Button fx:id="booking_btn" layoutX="318.0" layoutY="373.0" mnemonicParsing="false" styleClass="btn" text="Book" />
+            <Button fx:id="chatai_button" layoutX="434.0" layoutY="373.0" mnemonicParsing="false" styleClass="btn" text="Chat AI" />
+            <Button fx:id="open_chat" layoutX="192.0" layoutY="373.0" mnemonicParsing="false" styleClass="btn" text="Chat" />
+            <ImageView fx:id="camera" fitHeight="33.0" fitWidth="33.0" layoutX="88.0" layoutY="70.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@Images/camera.png" />
+               </image>
+            </ImageView>
+            <ImageView fx:id="client_img" fitHeight="66.0" fitWidth="69.0" layoutX="35.0" layoutY="20.0" pickOnBounds="true" preserveRatio="true" />
+            <Label fx:id="client_name" layoutX="153.0" layoutY="40.0" text="Label">
+               <font>
+                  <Font name="System Bold" size="18.0" />
+               </font>
+            </Label>
+         </children>
+      </Pane>
    </children>
 </AnchorPane>

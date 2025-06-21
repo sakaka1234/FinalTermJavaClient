@@ -17,7 +17,7 @@ import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
 public class AIChat extends Application {
-    private static final String API_KEY = "AIzaSyAJfHzrsjcSpLlEOsYEd5opEax0u42YiRc";
+    private static final String API_KEY = "AIzaSyAD3OnDauJjGd6pK8-rMGuZRG_kmH1NZAM";
     private static final String API_URL = "https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key=" + API_KEY;
 
     private static final ExecutorService executor = Executors.newSingleThreadExecutor();
