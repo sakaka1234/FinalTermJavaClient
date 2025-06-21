@@ -25,6 +25,7 @@ import java.time.LocalDate;
 import java.util.ResourceBundle;
 
 public class ClientFormController implements Initializable {
+    public Button chatai_button;
     @FXML
     private Button open_chat;
     @FXML
@@ -45,7 +46,7 @@ public class ClientFormController implements Initializable {
         origin.getItems().addAll("Da Nang", "Hai Phong", "Ha Noi", "Sai Gon", "Hue");
         destination.getItems().addAll("Da Nang", "Hai Phong", "Ha Noi", "Sai Gon", "Hue");
         seat.getItems().addAll("A11","A12","A13","A14","A15","A16","A17","A18","A19");
-
+        chatai_button.setOnAction(this::changeSceneToChatAI);
         camera.setOnMouseClicked(event -> chooseImage());
     }
 
@@ -61,6 +62,20 @@ public class ClientFormController implements Initializable {
             e.printStackTrace();
         }
     }
+
+    @FXML
+    private void changeSceneToChatAI(ActionEvent event){
+        try{
+            FXMLLoader loader =new FXMLLoader(getClass().getResource("/org/example/finaltermjava_client/chatAI.fxml"));
+            Scene scene = new Scene(loader.load());
+            Stage stage = (Stage) open_chat.getScene().getWindow();
+            stage.setScene(scene);
+
+        }catch (IOException e){
+            e.printStackTrace();
+        }
+    }
+
     public void setInfoUser(String name , String imgPath){
         client_name.setText(name);
         try{

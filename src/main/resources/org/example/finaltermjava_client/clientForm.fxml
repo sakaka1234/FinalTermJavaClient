@@ -1,15 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.control.Button?>
-<?import javafx.scene.control.ComboBox?>
-<?import javafx.scene.control.DatePicker?>
-<?import javafx.scene.control.Label?>
-<?import javafx.scene.image.Image?>
-<?import javafx.scene.image.ImageView?>
-<?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.text.Font?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
 
-<AnchorPane prefHeight="515.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.finaltermjava_client.controller.ClientFormController">
+<AnchorPane prefHeight="515.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.finaltermjava_client.controller.ClientFormController">
    <children>
       <Button fx:id="open_chat" layoutX="94.0" layoutY="321.0" mnemonicParsing="false" text="Chat" />
       <Label layoutX="266.0" layoutY="142.0" text="Date booking" />
@@ -32,5 +28,6 @@
       <ComboBox fx:id="seat" layoutX="620.0" layoutY="296.0" prefWidth="150.0" />
       <DatePicker fx:id="date_booking" layoutX="266.0" layoutY="172.0" />
       <Button fx:id="booking_btn" layoutX="388.0" layoutY="414.0" mnemonicParsing="false" text="Book" />
+      <Button layoutX="89.0" layoutY="366.0" mnemonicParsing="false" text="Chat AI" fx:id="chatai_button"/>
    </children>
 </AnchorPane>
